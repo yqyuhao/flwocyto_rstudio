@@ -44,5 +44,8 @@ RUN apt-get install gdebi-core
 RUN wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2022.07.1-554-amd64.deb
 RUN gdebi rstudio-server-2022.07.1-554-amd64.deb
 
+# add user
+RUN useradd flowcyto -d /home/flowcyto -m -p flowcyto123 
+
 # mkdir fastq directory and analysis directory
 WORKDIR /data/analysis
