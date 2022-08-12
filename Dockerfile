@@ -42,10 +42,11 @@ RUN chown root:root -R $software
 # Rstudio server
 RUN apt-get install -y gdebi-core
 RUN wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2022.07.1-554-amd64.deb
-RUN gdebi rstudio-server-2022.07.1-554-amd64.deb
+RUN gdebi -y rstudio-server-2022.07.1-554-amd64.deb
 
 # add user
-RUN useradd -g group user && echo "password" | passwd --stdin user
+RUN groupadd bio
+RUN useradd -g bio cytoflow && echo "password" | passwd --stdin cytoflow
 
 # mkdir fastq directory and analysis directory
 WORKDIR /data/analysis
