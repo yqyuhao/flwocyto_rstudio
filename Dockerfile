@@ -46,7 +46,8 @@ RUN gdebi -q rstudio-server-2022.07.1-554-amd64.deb
 
 # add user
 RUN groupadd bio
-RUN useradd -g bio cytoflow -p passowrd
+RUN useradd -g bio cytoflow -p password
+EXPOSE map[8787/tcp:{}]
 
 # mkdir fastq directory and analysis directory
 WORKDIR /data/analysis
