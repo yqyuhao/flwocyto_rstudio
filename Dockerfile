@@ -45,8 +45,8 @@ RUN wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2022.07
 RUN gdebi -q rstudio-server-2022.07.1-554-amd64.deb
 
 # add user
-RUN groupadd bio
-RUN useradd -g bio cytoflow && echo "password" | passwd --stdin cytoflow
+RUN useradd flowcyto -m -s /bin/bash
+RUN echo "flowcyto:password" | chpasswd
 
 # mkdir fastq directory and analysis directory
 WORKDIR /data/analysis
