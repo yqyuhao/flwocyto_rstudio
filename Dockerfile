@@ -42,7 +42,7 @@ RUN chown root:root -R $software
 # Rstudio server
 RUN apt-get install -y gdebi-core
 RUN wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2022.07.1-554-amd64.deb
-RUN gdebi -q rstudio-server-2022.07.1-554-amd64.deb
+RUN gdebi -nq rstudio-server-2022.07.1-554-amd64.deb
 
 # add user
 RUN useradd flowcyto -m -s /bin/bash
